@@ -1,0 +1,34 @@
+#include "doublerecord.h"
+DoubleRecord::DoubleRecord(double val):value(val)
+{
+
+}
+
+DoubleRecord *DoubleRecord::clone() const
+{
+    return new numberRecord(*this);
+}
+
+bool numberRecord::operator==(const Record & r) const
+{
+    return value == r.getQStringValue().toDouble();
+}
+
+void numberRecord::setValue(const double& val)
+{
+    value=val;
+}
+
+QString numberRecord::getQStringValue() const
+{
+
+    return QString::number(value);
+}
+
+
+
+double numberRecord::getValue() const
+{
+    return value;
+}
+
